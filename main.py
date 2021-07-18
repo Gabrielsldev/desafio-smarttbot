@@ -14,7 +14,7 @@ conn = MySqlConnection(user=user, password=password, database=database)
 # Testa conexão com MySQL
 conn.connect()
 
-# Cria uma instância 
+# Cria o gráfico
 chart = go.FigureWidget()
 chart.update_layout(showlegend=False)
 chart.update_layout(xaxis_rangeslider_visible=False)
