@@ -18,7 +18,7 @@ conn.connect()
 chart = go.FigureWidget()
 chart.update_layout(showlegend=False)
 chart.update_layout(xaxis_rangeslider_visible=False)
-# chart.show()
+chart.show()
 
 # Duration é o tempo total que o usuário deseja que o script colete as informações, em minutos.
 # Period é qual o período dos Candles, se 1, 5 ou 10 minutos.
