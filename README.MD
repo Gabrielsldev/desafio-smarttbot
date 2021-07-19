@@ -92,3 +92,5 @@ Algumas dificuldades e limitações merecem destaque:
   * Para ajudar a contornar esse problema, é desprezado o último segundo de cada período, o que não impede que ocorra totalmente. Tecnicamente e estatisticamente, esse último segundo não é significativo para a criação dos candles.
   * Espera-se que com a API privada e uma conexão estável, essas perdas não ocorram.
   * Uma outra solução é não plotar o gráfico, o que economizaria tempo de execução entre a coleta de um período e outro.
+
+* Implementação com Docker e Docker-Compose. Como já ressaltado, são ferramentas que ainda se apresentam como um desafio para mim, mas já iniciei um [curso](https://www.udemy.com/course/docker-essentials-for-python-developers/) para sanar essa lacuna.
