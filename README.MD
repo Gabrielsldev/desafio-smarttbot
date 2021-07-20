@@ -25,7 +25,7 @@ O programa foi pensado como uma **biblioteca que será utilizada por outras pess
 
 ***
 
-## Instruções de uso
+# Instruções de uso
 
 * Clone o repositório para o diretório desejado.
 * Crie um ambiente virtual e instale os pacotes listados no arquivo [requirements.txt](https://github.com/Gabrielsldev/desafio-smarttbot/blob/main/requirements.txt) por meio do comando `pip install -r requirements.txt`.
@@ -40,7 +40,7 @@ O programa foi pensado como uma **biblioteca que será utilizada por outras pess
 Para fins de entrega deste desafio, a fim de deixar a execução da aplicação mais intuitiva, ao invés de argumentos em linhas de comando, optou-se por solicitar do usuário, via `input()`, a entrada dos dados usados como argumentos das funções.
 Dependendo do uso, se necessário, é possível fazer os devidos ajustes para incluir esses dados como argumentos em linha de comando ou via Docker-Compose.
 
-**NOTA:** É necessário que o serviço **MySQL** esteja rodando para que a aplicação possa se conectar com o banco de dados. **Antes da execução do programa, é necessário a criação de um banco de dados para que as tabelas sejam salvas.** Esse banco de dados será informado na execução da aplicação.
+**NOTA:** É necessário que o serviço **MySQL esteja rodando localmente** para que a aplicação possa se conectar com o banco de dados. **Antes da execução do programa, é necessário a criação de um banco de dados para que as tabelas sejam salvas.** Esse banco de dados será informado na execução da aplicação.
 
 Os seguintes dados são solicitados do usuário:
 * `Moeda (deixe em branco para Bitcoin)`, conforme [moedas disponíveis na API](https://docs.poloniex.com/#currency-pair-ids).
