@@ -1,96 +1,91 @@
-# **Pessoa Desenvolvedora BackEnd - Plataformas (Python)** | ![SMARTTBOT](https://smarttbot.com/wp-content/uploads/2018/02/sb-1.png)
-## Desafio Técnico
-###### Desenvolvido por **Gabriel Sobreira Lopes**
+# **REAL-TIME CRYPTOCURRENCY DATA AGGREGATION SYSTEM**
+###### Developed by **Gabriel Sobreira Lopes**
 
-### Descrição
+### Description
 
-O desafio consiste em criar um sistema de agregação de dados de cotações de criptomoedas em tempo real. É necessário construir os candles de 1, 5 e 10 minutos a partir dos dados consumidos via [API Poloniex](https://docs.poloniex.com/#returnticker).
+Real-time cryptocurrency quote data aggregation system. Builds 1, 5 and 10 minute candles from data consumed via [API Poloniex](https://docs.poloniex.com/#returnticker).
 
-### **Criei meu próprio cliente** a partir das recomendações exigidas:
+### **I created my own client** with the following tools:
 
-* Utilização da linguagem **Python**.
-* Utilização do **MySQL** para salvar os dados dos candles.
-* Uso de ferramentas e componentes open-source, como **Pandas**, **Numpy**, **SQLAlchemy**, dentre outros.
-* Testes utilizando a biblioteca **Pytest**.
-* Utilização do **GIT** para controle de versões.
+* **Python**.
+* **Pandas**, **Numpy**, **SQLAlchemy**, among others.
+* **MySQL** to save candle stick data.
+* **Pytest** to test some of the features.
+* **GIT** for version control.
 
-**Foram incluídos os seguintes extras:**
+**Features:**
 
-* Suporte a **qualquer moeda** disponível na [API](https://docs.poloniex.com/#currency-pair-ids).
-* **Gráfico de CandleStick** plotado em tempo real, de acordo com a coleta dos dados, utilizando a biblioteca **Plotly**.
-
-O programa foi pensado como uma **biblioteca que será utilizada por outras pessoas**. Dessa forma, prezou-se pelas **boas práticas**, **código bem comentado**, além de uma **boa documentação** e **fácil usabilidade**.
-
-**NOTA:** Foi solicitado o uso de Docker e Docker-Compose. Essas ferramentas se apresentam como um desafio para mim. Iniciei um [curso](https://www.udemy.com/course/docker-essentials-for-python-developers/) imediatamente a fim de suprir essa lacuna.
+* Support for **any cryptocurrency** provided by the [API](https://docs.poloniex.com/#currency-pair-ids).
+* **CandleStick graph** in real time using **Plotly**.
 
 ***
 
-# Instruções de uso
+# Instructions:
 
-* Clone o repositório para o diretório desejado.
-* Crie um ambiente virtual e instale os pacotes listados no arquivo [requirements.txt](https://github.com/Gabrielsldev/desafio-smarttbot/blob/main/requirements.txt) por meio do comando `pip install -r requirements.txt`.
-* A aplicação foi criada no sistema **Ubuntu 20.04** utilizando **Python 3.8.10**.
+* Clone the repository to the desired directory.
+* Create a virtual environment and install the packages listed in the file [requirements.txt](https://github.com/Gabrielsldev/desafio-smarttbot/blob/main/requirements.txt) using `pip install -r requirements.txt`.
+* The application was created on **Ubuntu 20.04** with **Python 3.8.10**.
 
-## Execução do programa
+## Execution:
 
-* Execute o programa `main.py` através do comando `python main.py`.
-* A execução da aplicação é bem intuitiva, mas devem ser observadas as informações abaixo.
+* Run the program `main.py` with `python main.py`.
+* The application execution is very intuitive, but the information below must be observed.
 
-**Observações importantes:**
-Para fins de entrega deste desafio, a fim de deixar a execução da aplicação mais intuitiva, ao invés de argumentos em linhas de comando, optou-se por solicitar do usuário, via `input()`, a entrada dos dados usados como argumentos das funções.
-Dependendo do uso, se necessário, é possível fazer os devidos ajustes para incluir esses dados como argumentos em linha de comando ou via Docker-Compose.
+**Important notes:**
+It is necessary that the **MySQL service is running locally** so that the application can connect to the database. **Before running the program, it is necessary to create a database so that the tables can be saved.** This database will be informed in the execution of the application.
 
-**NOTA:** É necessário que o serviço **MySQL esteja rodando localmente** para que a aplicação possa se conectar com o banco de dados. **Antes da execução do programa, é necessário a criação de um banco de dados para que as tabelas sejam salvas.** Esse banco de dados será informado na execução da aplicação.
-
-Os seguintes dados são solicitados do usuário:
+The following data is requested from the user:
 * `Moeda (deixe em branco para Bitcoin)`, conforme [moedas disponíveis na API](https://docs.poloniex.com/#currency-pair-ids).
+  * `Currency (leave blank for Bitcoin)`, as per [currencies available in the API](https://docs.poloniex.com/#currency-pair-ids).
 * `Período do Candle em minutos(1, 5 ou 10)`, informação necessária para definir o período de cada candle.
+  * `Candle period in minutes (1, 5 or 10)`, information necessary to define the period of each candle.
 * `Por quanto tempo você quer coletar as informações (em minutos)`, define por quanto tempo a aplicação irá rodar.
-* `Usuário MySQL (deixe em branco para root)`, usuário MySQL. 
+  * `How long do you want to collect the information (in minutes)`, defines how long the application will run.
+* `Usuário MySQL (deixe em branco para root)`, usuário MySQL.
+  * `MySQL user (leave blank for root)`, MySQL user.
 * `Senha MySQL`, senha MySQL.
+  * `MySQL password`, MySQL password.
 * `Nome do banco de dados a ser utilizado`, informar o banco de dados criado para salvar as tabelas criadas pela aplicação.
+  * `Name of the database to be used`, database created to save the tables created by the application.
 
-É informado no terminal sempre que for salvo os dados de cada candle no banco de dados. Vale ressaltar que os candles só são salvos após a coleta e o processamento das informações.
+It is informed in the terminal whenever the data of each candle is saved in the database. It is noteworthy that candles are only saved after collecting and processing information.
 
 ***
 
-## Resultados esperados
+## Expected results:
 
-* O programa **consumirá os dados da API em tempo real** e **salvará os candles no banco de dados informado** em tabelas chamadas `one_minute`, `five_minutes` e `ten_minutes`, dependendo do período de candle desejado, conforme modelo abaixo:
+* The program **will consume the API data in real time** and **will save the candles in the informed database** in tables called `one_minute`, `five_minutes` and `ten_minutes`, depending on the desired candle period, as per model below:
 
 | Moeda  |  Periodicidade  |  Datetime  |  Open  |  Low  |  High  |  Close  |
 | ------ | --------------- | ---------- | ------ | ----- | ------ | ------- |
 |  ---   |      ---        |     ---    |   ---  |  ---  |  ---   |   ---   |
 |  ---   |      ---        |     ---    |   ---  |  ---  |  ---   |   ---   |
 
-* Será **plotado um gráfico** no navegador, em tempo real, com os candles coletados, conforme imagem abaixo:
+* **A graph** will be plotted in the browser, in real time, with the collected candles, as shown in the image below:
 ![ChartOneMin](https://github.com/Gabrielsldev/desafio-smarttbot/blob/main/static/Screenshot%20from%202021-07-19%2017-42-45.png)
 
 
 ***
 
-## Testes
+## Tests:
 
-Foram criados testes para testar as funções da aplicação. No diretório `testes` é possível encontrar quatro arquivos de teste. Decidi dividir os testes em quatro arquivos pois os testes das funções que coletam os candles de 5 e de 10 minutos demoram mais. Foi utilizada a biblioteca **Pytest** para a construção dos testes.
+Tests the application's functions. In the `tests` directory you can find four test files. I decided to split the tests into four files because the tests of the functions that collect the 5 and 10 minute candles take longer. **Pytest** library was used to build the tests.
 
-Para executá-los, basta executar, no diretório `testes`, o comando `py.test` seguido do nome do arquivo com o teste desejado.
+To run them, just run, in the `tests` directory, the command `py.test` followed by the name of the file with the desired test.
 
-* `testes_candles.py` testa a chamada da API, o retorno correto dos dados dos candles e se os dados estão prontos para serem plotados no grádico.
-* `testes_onemin.py`, `testes_fivemin.py` e `testes_tenmin.py` testam as chamadas da API, se os dados de cada um dos candles foram criados corretamente e se o intervalo de coleta corresponde ao período informado. Os arquivos referem-se aos períodos de 1, 5 e 10 minutos respectivamente.
-
+* `testes_candles.py` tests the API call, the correct return of the candles data and if the data is ready to be plotted on the chart.
+* `testes_onemin.py`, `testes_fivemin.py` and `testes_tenmin.py` test the API calls, if the data of each of the candles was created correctly and if the collection interval corresponds to the informed period. Files refer to periods of 1, 5 and 10 minutes respectively.
 
 ***
 
-## Dificuldades encontradas, limitações e sugestões de melhorias
+## Difficulties, limitations and suggestions for improvements:
 
-Algumas dificuldades e limitações merecem destaque:
+Some difficulties and limitations are worth mentioning:
 
-* A **[API Poloniex](https://docs.poloniex.com/#returnticker) pública** pode sofrer um pouco com instabilidades. Dessa forma, apesar dos melhores esforços para não se perder nem um dos períodos dos candles, pode haver perda por conta da limitação de conexão.
-  * Essa limitação pode ser vista no gráfico abaixo:
+* The public **[API Poloniex](https://docs.poloniex.com/#returnticker)** may suffer a little from instabilities. Thus, despite the best efforts not to lose even one of the candle periods, there may be a loss due to the connection limitation.
+ * This limitation can be seen in the chart below:
 ![ChartOneMinTest](https://github.com/Gabrielsldev/desafio-smarttbot/blob/main/static/Screenshot%20from%202021-07-19%2017-48-28.png)
-  * É possível fazer os testes para saber se os períodos estão sendo observados conforme explicado na seção anterior.
-  * Para ajudar a contornar esse problema, é desprezado o último segundo de cada período, o que não impede que ocorra totalmente. Tecnicamente e estatisticamente, esse último segundo não é significativo para a criação dos candles.
-  * Espera-se que com a API privada e uma conexão estável, essas perdas não ocorram.
-  * Uma outra solução é não plotar o gráfico, o que economizaria tempo de execução entre a coleta de um período e outro.
-
-* Implementação com Docker e Docker-Compose. Como já ressaltado, são ferramentas que ainda se apresentam como um desafio para mim, mas já iniciei um [curso](https://www.udemy.com/course/docker-essentials-for-python-developers/) para sanar essa lacuna.
+ * It is possible to run tests to see if the periods are being observed as explained in the previous section.
+  * To help overcome this problem, the last second of each period is neglected, which does not prevent it from occurring entirely. Technically and statistically, this last second is not significant for creating candlesticks.
+  * It is expected that with the private API and a stable connection, these losses will not occur.
+  * Another solution is not to plot the graph, which would save execution time between collecting one period and another.
